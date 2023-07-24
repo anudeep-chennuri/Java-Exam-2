@@ -7,7 +7,8 @@ public class BasicStringUtils {
      * @return concatenation of `string1` and `string2`
      */
     public static String concatentate(String string1, String string2) {
-        return null;
+
+      return string1 + string2;
     }
 
     /**
@@ -15,7 +16,11 @@ public class BasicStringUtils {
      * @return an identical string with characters in reverse order
      */
     public static String reverse(String string1) {
-        return null;
+
+        StringBuilder x = new StringBuilder(string1);
+        x.reverse();
+        return x.toString();
+
     }
 
     /**
@@ -24,7 +29,16 @@ public class BasicStringUtils {
      * @return concatenation of the reverse of `string1` and reverse of `string2`
      */
     public static String reverseThenConcatenate(String string1, String string2) {
-        return null;
+        StringBuilder x = new StringBuilder(string1);
+        x.reverse();
+        String sOne = x.toString();
+
+        StringBuilder y = new StringBuilder(string2);
+        y.reverse();
+        String sTwo = y.toString();
+        return sOne + sTwo;
+
+
     }
 
     /**
@@ -33,7 +47,16 @@ public class BasicStringUtils {
      * @return `string` with `charactersToRemove` removed
      */
     public static String removeCharacters(String string, String charactersToRemove) {
-        return null;
+//        String newString = string.replaceAll(charactersToRemove, "");
+//
+//        return newString;
+// always makin me do a for loop
+        String newString = string;
+        for (int i = 0; i <charactersToRemove.length(); i++){
+            newString = newString.replace(charactersToRemove.charAt(i), ' ');
+        }
+        String newNewString = newString.replaceAll("\\s","");
+        return newNewString;
     }
 
     /**
@@ -42,6 +65,15 @@ public class BasicStringUtils {
      * @return reverse of `string` with `charactersToRemove` removed
      */
     public static String removeCharactersThenReverse(String string, String charactersToRemove) {
-        return null;
+
+        String newString = string;
+        for (int i = 0; i <charactersToRemove.length(); i++){
+            newString = newString.replace(charactersToRemove.charAt(i), ' ');
+        }
+        String newNewString = newString.replaceAll("\\s","");
+
+        StringBuilder x = new StringBuilder(newNewString);
+        x.reverse();
+        return x.toString();
     }
 }
